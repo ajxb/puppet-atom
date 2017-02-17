@@ -44,7 +44,6 @@
 #
 class atom (
   String  $package_ensure = $atom::params::package_ensure,
-  String  $package_name   = $atom::params::package_name,
   Boolean $disable_gpu    = $atom::params::disable_gpu
 ) inherits atom::params {
 
