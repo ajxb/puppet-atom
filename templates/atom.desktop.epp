@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Atom
+Comment=A hackable text editor for the 21st Century.
+GenericName=Text Editor
+<% if $atom::disable_gpu == true { -%>
+Exec=/opt/atom/atom %F --disable-gpu
+<% } else { -%>
+Exec=/opt/atom/atom %F
+<% } -%>
+Icon=atom
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;TextEditor;Development;
+MimeType=text/plain;
+X-Desktop-File-Install-Version=0.22
