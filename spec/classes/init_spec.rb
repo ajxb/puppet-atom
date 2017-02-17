@@ -7,12 +7,12 @@ describe 'atom' do
         facts
       end
 
-      it { is_expected.to compile.with_all_deps }
+      it { should compile.with_all_deps }
       it { should contain_class('atom') }
       it { should contain_class('atom::config') }
       it { should contain_class('atom::install') }
       it { should contain_class('atom::params') }
-      it { is_expected.to contain_class('atom::install').that_comes_before('Class[atom::config]') }
+      it { should contain_class('atom::install').that_comes_before('Class[atom::config]') }
     end
   end
 
