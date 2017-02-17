@@ -47,7 +47,7 @@ class atom (
   Boolean $disable_gpu    = $atom::params::disable_gpu
 ) inherits atom::params {
 
-  class { 'atom::install': 
+  class { 'atom::install':
     package_ensure => $package_ensure,
   }
 

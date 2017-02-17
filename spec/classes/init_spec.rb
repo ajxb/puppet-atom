@@ -1,6 +1,5 @@
 require 'spec_helper'
 describe 'atom' do
-
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
@@ -23,10 +22,10 @@ describe 'atom' do
       }
     end
 
-    it {
-      expect {
+    it do
+      expect do
         subject.call
-      }.to raise_error(Puppet::Error, /Unsupported OS not supported/)
-    }
+      end.to raise_error(Puppet::Error, /Unsupported OS not supported/)
+    end
   end
 end
