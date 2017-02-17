@@ -13,7 +13,7 @@ describe 'atom::config' do
           }
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('file') }
-        it { should contain_file('/usr/share/applications/atom.desktop').with_content(/^Exec=\/opt\/atom\/atom %F --disable-gpu$/) }
+        it { should contain_file('/usr/share/applications/atom.desktop').with_content(%r{^Exec=/opt/atom/atom %F --disable-gpu$}) }
       end
 
       context 'disable_gpu is set to false' do
@@ -23,7 +23,7 @@ describe 'atom::config' do
           }
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('absent') }
-        it { should contain_file('/usr/share/applications/atom.desktop').with_content(/^Exec=\/opt\/atom\/atom %F$/) }
+        it { should contain_file('/usr/share/applications/atom.desktop').with_content(%r{^Exec=/opt/atom/atom %F$}) }
       end
     end
   end
