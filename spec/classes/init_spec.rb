@@ -1,27 +1,22 @@
 require 'spec_helper'
 describe 'atom' do
 
-  context 'On Ubuntu OS with default parameters' do
-    let :facts do
-      {
-        :lsbdistcodename => 'xenial',
-        :lsbdistid       => 'Ubuntu',
-        :lsbdistrelease  => '16.04',
-        :operatingsystem => 'Ubuntu',
-        :osfamily        => 'Debian',
-        :puppetversion   => Puppet.version,
-      }
-    end
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    it { is_expected.to compile.with_all_deps }
-    it { should contain_class('atom') }
-    it { should contain_class('atom::config') }
-    it { should contain_class('atom::install') }
-    it { should contain_class('atom::params') }
-    it { is_expected.to contain_class('atom::install').that_comes_before('Class[atom::config]') }
+      it { is_expected.to compile.with_all_deps }
+      it { should contain_class('atom') }
+      it { should contain_class('atom::config') }
+      it { should contain_class('atom::install') }
+      it { should contain_class('atom::params') }
+      it { is_expected.to contain_class('atom::install').that_comes_before('Class[atom::config]') }
+    end
   end
 
-  context 'With unsupported operatingsystem' do
+  context 'with unsupported operatingsystem' do
     let :facts do
       {
         :operatingsystem => 'Unsupported OS',
