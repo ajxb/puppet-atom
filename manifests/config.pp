@@ -1,6 +1,7 @@
-class atom::config inherits atom {
-
-  if $atom::disable_gpu {
+class atom::config (
+  Boolean $disable_gpu = $atom::params::disable_gpu
+) inherits atom::params {
+  if $disable_gpu {
     file { '/etc/profile.d/atom.sh':
       ensure => file,
       source => 'puppet:///modules/atom/atom.sh',

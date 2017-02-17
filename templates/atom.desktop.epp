@@ -2,7 +2,7 @@
 Name=Atom
 Comment=A hackable text editor for the 21st Century.
 GenericName=Text Editor
-<% if $atom::disable_gpu == true { -%>
+<% if $atom::config::disable_gpu == true { -%>
 Exec=/opt/atom/atom %F --disable-gpu
 <% } else { -%>
 Exec=/opt/atom/atom %F

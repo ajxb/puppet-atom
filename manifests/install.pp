@@ -1,10 +1,11 @@
-class atom::install inherits atom {
-
+class atom::install (
+  String $package_ensure = $atom::params::package_ensure,
+) inherits atom::params {
   include apt
   apt::ppa { 'ppa:webupd8team/atom': }
 
   package { 'atom':
-    ensure => $atom::package_ensure,
+    ensure => $package_ensure,
   }
 
   Apt::Ppa['ppa:webupd8team/atom']
