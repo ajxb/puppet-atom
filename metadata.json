@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Adam Butler",
   "summary": "Install and manage atom text editor",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "source": "https://github.com/ajxb/puppet-atom",
   "project_page": "https://github.com/ajxb/puppet-atom",
   "issues_url": "https://github.com/ajxb/puppet-atom/issues",
