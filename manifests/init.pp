@@ -1,47 +1,16 @@
 # Class: atom
-# ===========================
 #
-# Full description of class atom here.
+# Manage installation and configuration of atom on Ubuntu, installing from ppa
 #
-# Parameters
-# ----------
+# @example Declaring the class
+#   include atom
+# @example Declaring the class with parameters
+#   class { 'atom':
+#     disable_gpu => true,
+#   }
 #
-# Document parameters here.
-#
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# Here you should define a list of variables that this module would require.
-#
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
-#
-# Examples
-# --------
-#
-# @example
-#    class { 'atom':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
-#
-# Authors
-# -------
-#
-# Author Name <author@domain.com>
-#
-# Copyright
-# ---------
-#
-# Copyright 2017 Your name here, unless otherwise noted.
-#
+# @param disable_gpu Specifies whether the atom application should be configured so that it is invoked with the --disable-gpu flag
+# @param package_ensure Specifies whether to install the atom package, and what version to install
 class atom (
   String  $package_ensure = $atom::params::package_ensure,
   Boolean $disable_gpu    = $atom::params::disable_gpu

@@ -1,3 +1,7 @@
+# atom::params
+#
+# Handles the module default parameters
+#
 class atom::params {
 
   case $facts['operatingsystem'] {
