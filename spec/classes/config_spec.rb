@@ -8,9 +8,9 @@ describe 'atom::config' do
 
       context 'The machine is virtual' do
         let :facts do
-          facts.merge({
-            :is_virtual => true,
-          })
+          facts.merge(
+            is_virtual: true
+          )
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('file') }
         it { should contain_file('/usr/share/applications/atom.desktop').with_content(%r{^Exec=/opt/atom/atom %F --disable-gpu$}) }
@@ -18,9 +18,9 @@ describe 'atom::config' do
 
       context 'The machine is physical' do
         let :facts do
-          facts.merge({
-            :is_virtual => false,
-          })
+          facts.merge(
+            is_virtual: false
+          )
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('absent') }
         it { should contain_file('/usr/share/applications/atom.desktop').with_content(%r{^Exec=/opt/atom/atom %F$}) }
@@ -29,7 +29,7 @@ describe 'atom::config' do
       context 'disable_gpu has been explicitly set to true' do
         let :params do
           {
-             :disable_gpu => true,
+            disable_gpu: true
           }
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('file') }
@@ -39,7 +39,7 @@ describe 'atom::config' do
       context 'disable_gpu has been explicitly set to false' do
         let :params do
           {
-             :disable_gpu => false,
+            disable_gpu: false
           }
         end
         it { should contain_file('/etc/profile.d/atom.sh').with_ensure('absent') }

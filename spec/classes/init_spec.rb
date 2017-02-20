@@ -18,7 +18,7 @@ describe 'atom' do
   context 'with unsupported operatingsystem' do
     let :facts do
       {
-        :operatingsystem => 'Unsupported OS',
+        operatingsystem: 'Unsupported OS'
       }
     end
 
