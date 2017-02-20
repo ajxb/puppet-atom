@@ -1,4 +1,10 @@
 *~
-Gemfile.lock
 spec/fixtures/
+
+## BUNDLER
+.bundle
+Gemfile.lock
+
+## YARD
 .yardoc
+/doc/
